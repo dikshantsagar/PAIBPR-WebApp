@@ -1,0 +1,162 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+  <title>Authors</title>
+
+  <!-- CSS  -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="{% static "css/materialize.css" %}" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="{% static "css/style.css" %}" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <script src="https://kit.fontawesome.com/e0a08b5c11.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    
+    <nav class="navbar-fixed">
+        <nav class="grey darken-4" role="navigation">
+          <div class="nav-wrapper container">
+            <a id="logo-container" href="{% url 'home' %}" class="brand-logo">
+              <img src = "{% static "LOGO.png" %}" width="100vh">
+            </a>
+            <ul class="right hide-on-med-and-down">
+              <li>
+                <a class="orange waves-effect waves-light btn" href="{% url 'paibpr' %}"><i class="material-icons right">send</i>Try PAI-BPR</a>
+              </li>
+            </ul>
+            <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+          </div>
+        </nav>
+    </nav>
+    <ul id="nav-mobile" class="sidenav">
+      <li><a href="{% url 'paibpr' %}"><i class="material-icons right">send</i>Try PAI-BPR</a></li>
+      <li><a href="{% url 'authors' %}"><i class="material-icons right">people</i>Authors</a></li>
+    </ul>
+
+    <div class="container" style="margin-top: 5vh;">
+        <div class="section">
+
+            <div class="row">
+                <div class="col s16 m4 l4">
+                  <div class="card">
+                    <div class="card-image waves-effect waves-block waves-light">
+                      <img class='activator' src="{% static "authors/dikshant.png" %}">
+                      
+                    </div>
+                    <div class="card-content">
+                      <span class="card-title activator grey-text text-darken-4">Dikshant Sagar<i class="material-icons right">more_vert</i></span>
+                      
+                    </div>
+                    <div class="card-reveal">
+                      <span class="card-title activator grey-text text-darken-4">Dikshant Sagar<i class="material-icons right">close</i></span>
+                      <p>Studying Computer Science at IIIT-D. Research Interests : Deep Representation Learning and Computer Vision.</p>
+                      <span>
+                        <a href="https://dikshantsagar.github.io" class="orange-text" style="padding-right: 2%;"><i class="material-icons">public</i></a>
+                        <a href="https://github.com/dikshantsagar" class="orange-text"><i class="material-icons">code</i></a>
+                      </span>
+                      
+                    </div>
+                  </div>
+                </div>
+                <div class="col s16 m4 l4">
+                    <div class="card">
+                      <div class="card-image waves-effect waves-block waves-light">
+                        <img class='activator' src="{% static "authors/sejal.jpeg" %}">
+                        
+                      </div>
+                      <div class="card-content">
+                        <span class="card-title activator grey-text text-darken-4">Sejal Bhalla<i class="material-icons right">more_vert</i></span>
+                      </div>
+                      <div class="card-reveal">
+                        <span class="card-title activator grey-text text-darken-4">Sejal Bhalla<i class="material-icons right">close</i></span>
+                        <p>Studying Computer Science at IIIT-D.</p>
+                      </div>
+                    </div>
+                </div>
+                <div class="col s16 m4 l4">
+                    <div class="card">
+                      <div class="card-image waves-effect waves-block waves-light">
+                        <img class='activator' src="{% static "authors/jatin.jpeg" %}">
+                        
+                      </div>
+                      <div class="card-content">
+                        <span class="card-title activator grey-text text-darken-4">Jatin Garg<i class="material-icons right">more_vert</i></span>
+                      </div>
+                      <div class="card-reveal">
+                        <span class="card-title activator grey-text text-darken-4">Jatin Garg<i class="material-icons right">close</i></span>
+                        <p>Studying Computer Science at IIIT-D. </p>
+                      </div>
+                    </div>
+                </div>
+                <div class="col s16 m4 l4">
+                    <div class="card">
+                      <div class="card-image waves-effect waves-block waves-light">
+                        <img class='activator' src="{% static "authors/prarthna.jpeg" %}">
+                        
+                      </div>
+                      <div class="card-content">
+                        <span class="card-title activator grey-text text-darken-4">Prarthana Kansal<i class="material-icons right">more_vert</i></span>
+                      </div>
+                      <div class="card-reveal">
+                        <span class="card-title activator grey-text text-darken-4">Prarthana Kansal<i class="material-icons right">close</i></span>
+                        <p>Studying Computer Science at IIIT-D.</p>
+                      </div>
+                    </div>
+                </div>
+                <div class="col s16 m4 l4">
+                  <div class="card">
+                    <div class="card-image waves-effect waves-block waves-light">
+                      <img class='activator' src="{% static "authors/rajiv.jpeg" %}">
+                      
+                    </div>
+                    <div class="card-content">
+                      <span class="card-title activator grey-text text-darken-4">Dr.Rajiv Ratn Shah<i class="material-icons right">more_vert</i></span>
+                      
+                    </div>
+                    <div class="card-reveal">
+                      <span class="card-title activator grey-text text-darken-4">Dr.Rajiv Ratn Shah<i class="material-icons right">close</i></span>
+                      <p>Assistant Professor in the Department of Computer Science and Engineering at IIIT Delhi. Founder of MIDAS lab, IIIT-Delhi</p>
+                      <span>
+                        <a href="http://midas.iiitd.edu.in/team/rajiv-ratn-shah.html" class="orange-text"><i class="material-icons">public</i></a>
+                      </span>
+                    </div>
+                  </div>
+              </div>
+              <div class="col s16 m4 l4">
+                <div class="card">
+                  <div class="card-image waves-effect waves-block waves-light">
+                    <img class='activator' src="{% static "authors/yi.jpg" %}">
+                    
+                  </div>
+                  <div class="card-content">
+                    <span class="card-title activator grey-text text-darken-4">Dr.Yi Yu<i class="material-icons right">more_vert</i></span>
+                    
+                  </div>
+                  <div class="card-reveal">
+                    <span class="card-title activator grey-text text-darken-4">Dr.Yi Yu<i class="material-icons right">close</i></span>
+                    <p>Assistant Professor in National Institute of Informatics (NII). Research Interests: Generative Modeling and Embedding learning, and its application in Multimedia.</p>
+                    <span>
+                      <a href="http://research.nii.ac.jp/~yiyu/" class="orange-text"><i class="material-icons">public</i></a>
+                    </span>
+                  </div>
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
+    
+
+    
+    
+    
+    
+    <!--  Scripts-->
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="{% static "js/materialize.js" %}"></script>
+  <script src="{% static "js/init.js" %}"></script>
+</body>
+
+
+</html>

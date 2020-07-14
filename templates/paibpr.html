@@ -1,0 +1,183 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+  <title>Try PAI-BPR</title>
+
+  <!-- CSS  -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="{% static "css/materialize.css" %}" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="{% static "css/style.css" %}" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <script src="https://kit.fontawesome.com/e0a08b5c11.js" crossorigin="anonymous"></script>
+</head>
+    <body>
+        <nav class="navbar-fixed">
+            <nav class="grey darken-4" role="navigation">
+              <div class="nav-wrapper container">
+                <a id="logo-container" href="{% url 'home' %}" class="brand-logo">
+                  <img src = "{% static "LOGO.png" %}" width="100vh">
+                </a>
+                <ul class="right hide-on-med-and-down">
+                  <li>
+                    <a class="orange waves-effect waves-light btn" href="{% url 'authors' %}"><i class="material-icons right">people</i>Authors</a>
+                  </li>
+                </ul>
+                <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+              </div>
+            </nav>
+        </nav>
+        <ul id="nav-mobile" class="sidenav">
+          <li><a href="{% url 'paibpr' %}"><i class="material-icons right">send</i>Try PAI-BPR</a></li>
+          <li><a href="{% url 'authors' %}"><i class="material-icons right">people</i>Authors</a></li>
+        </ul>
+
+        <div class="section">
+          <br><br><br>
+          <div class="container">
+            <div class="row center">
+              <div class="col s12 m12 l12" style="padding-top: 3vh;">
+                <div class="col s12 m3 l3">
+                  <a class="modal-trigger l" href="#modalu">
+                    <div class="numbering">1</div>
+                    <div class="card butcard center waves-effect waves-light">
+                      
+                      <i class="fas fa-user fa-5x"></i>
+                      <h5> Select User </h5>
+                    </div>
+                  </a>
+                  <div id='modalu' class="modal bottom-sheet" style="min-height: 80vh;">
+                    <div class="modal-content">
+                      <div class="row">
+                        <div class="col s4 m4 l4 collection" style="overflow: scroll; max-height: 70vh;">
+                            {% csrf_token %}
+                            {% for u in userids %}
+                              <a class="userid orange-text collection-item " id='{{u}}' style="cursor: pointer;"><i class="material-icons orange-text">person</i>{{u}}</a>
+                            {% endfor %}
+                        </div>
+                        <div class="col s8 m8 l8">
+                          <div class="card-panel hoverable center" id='imgcont' style=" overflow: scroll; max-height: 70vh; display: flex;">
+                            <img src="static/hanger.png">
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col s12 m3 l3">
+                  
+                  <a class="modal-trigger l" href="#modal1">
+                    <div class="numbering">2</div>
+                    <div class="card butcard center waves-effect waves-light">
+                      
+                      <i class="fas fa-tshirt fa-5x"></i>
+                      <h5>Select Top </h5>
+                    </div>
+                  </a>
+                  
+                  
+                  <div id="modal1" class="modal modal-fixed-footer">
+                    <form>
+                      <div class="modal-content">
+                        <h4>Query Tops ( Select One)</h4>
+                        
+                          {% for image in tops %}
+                            <label>
+                              <input class='radio-orange' name='grouptop' type="radio" value='{% static image %}'/>
+                              <span >
+                                <img src='{% static image %}'>
+                              </span>
+                            </label>
+                          {% endfor %}
+                        
+                      </div>
+                      <div class="modal-footer">
+                        <a class="waves-effect waves-orange btn orange modal-trigger" href="#upload">Upload</a>
+                        <a class="modal-close waves-effect waves-orange btn-flat" onclick="topsubmit()"> OK </a>
+                      </div>
+                    </form>
+                  </div>
+                  <div id='upload' class="modal bottom-sheet">
+                    <div class="modal-content">
+                      <form method="POST" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        {{ form.as_p}}
+                        <input type="submit" class="orange btn waves-effect" value="Submit" onclick="uploadresponse()">
+                      </form>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col s12 m3 l3">
+                  <a class="modal-trigger l" href="#modal2">
+                    <div class="numbering">3</div>
+                    <div class="card butcard center waves-effect waves-light">
+                      
+                      <i class="fas fa-image fa-5x"></i>
+                      <h5>Select Bottom </h5>
+                    </div>
+                  </a>
+                  <div id="modal2" class="modal modal-fixed-footer">
+                    <form>
+                      <div class="modal-content">
+                        <h4>Query Bottoms</h4>
+                        
+                          {% for image in bottoms %}
+                            <label>
+                              <input name='groupbot' type="checkbox" class="filled-in checkbox-orange" value='{% static image %}' />
+                              <span>
+                                <img src='{% static image %}'>
+                              </span>
+                            </label>
+                          {% endfor %}
+                        
+                      </div>
+                      <div class="modal-footer">
+                        <a class="modal-close waves-effect waves-orange btn-flat" onclick="botsubmit()"> OK </a>
+                      </div>
+                      </form>
+                  </div>
+                </div>
+                <div class="col s12 m3 l3 ">
+                  <a class="modal-trigger l" href="#modal3">
+                    <div class="numbering">4</div>
+                    <div class="card butcard center waves-effect waves-light" id="go" style="cursor: pointer;">
+                      
+                      <i class="fas fa-th-list fa-5x"></i>
+                      <h5>Rank</h5>
+                    </div>
+                  </a>
+                </div>
+              </div>
+              
+            </div>
+          </div>
+          <div id='modal3' class="modal modal-fixed-footer">
+            <div class="modal-content">
+              <a class="btn-floating btn-large waves-effect waves-light grey darken-4 modal-close" href="{% url 'paibpr' %}"><i class="material-icons">arrow_back</i></a>
+              <a class="btn-floating btn-large waves-effect waves-light orange modal-trigger " href="#modal4"><i class="material-icons">person</i></a>
+              <div class="row">
+              <div class="center" id='selectcont'></div>
+              </div>
+            </div>
+           
+          </div>  
+          <div class="modal bottom-sheet center" id='modal4' style="min-height: 70vh;">
+            <h5>User Preference</h5>
+            <div class="center" id='userpref' style="display: flex;">
+              
+            </div>
+          </div>
+        </div>
+
+
+
+            <!--  Scripts-->
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="{% static "js/materialize.js" %}"></script>
+  <script src="{% static "js/init.js" %}"></script>
+    </body>
+</html>

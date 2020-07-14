@@ -1,0 +1,125 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+  <title>Home - PAI-BPR</title>
+
+  <!-- CSS  -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="{% static "css/materialize.css" %}" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="{% static "css/style.css" %}" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <script src="https://kit.fontawesome.com/e0a08b5c11.js" crossorigin="anonymous"></script>
+</head>
+<body>
+  </video>
+  <nav class="navbar-fixed">
+    <nav class="grey darken-4" role="navigation">
+      <div class="nav-wrapper container">
+        <a id="logo-container" href="#" class="brand-logo">
+          <img src = "{% static "LOGO.png" %}" width="100vh">
+        </a>
+        <ul class="right hide-on-med-and-down">
+          <li>
+            <a class="orange waves-effect waves-light btn" href="{% url 'authors' %}"><i class="material-icons right">people</i>Authors</a>
+          </li>
+        </ul>
+        <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+      </div>
+    </nav>
+  </nav>
+  <ul id="nav-mobile" class="sidenav">
+    <li><a href="{% url 'paibpr' %}"><i class="material-icons right">launch</i>Try Fashion PrefeRank</a></li>
+    <li><a href="{% url 'authors' %}"><i class="material-icons right">people</i>Authors</a></li>
+  </ul>
+  <div class="section no-pad-bot" id="index-banner">
+    <div class="container">
+      <br><br>
+      <h3 class="header center orange-text">Fashion PrefeRank</h3>
+      <div class="row center">
+        <h5 class="header col s12 light black-text">A State Of the Art User-Centric Fashion Recommendation System</h5>
+      </div>
+      <div class="row center">
+        <a href="{% url 'paibpr' %}" id="download-button" class="btn-large waves-effect waves-light orange">Try Fashion PrefeRank<i class="material-icons right">launch</i></a>
+      </div>
+      <br><br>
+
+    </div>
+  </div>
+
+
+  <div class="container">
+    <div class="section">
+
+      <!--   Icon Section   -->
+      <div class="row">
+        <div class="col s12 m4">
+          <div class="icon-block black-text">
+            <h2 class="center grey-darken-3-text"><i class="material-icons">photo_library</i></h2>
+            <h5 class="center">Attribute Representation Learning</h5>
+
+            <p class="light">We obtain fine grained attribute representations through a modified AlexNet Architecture trained on DeepFashion Dataset.</p>
+          </div>
+        </div>
+
+        <div class="col s12 m4">
+          <div class="icon-block black-text">
+            <h2 class="center grey-darken-3-text"><i class="material-icons">group</i></h2>
+            <h5 class="center">User Preference Mapping</h5>
+
+            <p class="light">By utilizing multi-modal information retrieval and fusion for fashion articles we train a BPR model to map user preferences.</p>
+          </div>
+        </div>
+
+        <div class="col s12 m4">
+          <div class="icon-block black-text">
+            <h2 class="center lgrey-darken-3-text"><i class="material-icons">accessibility</i></h2>
+            <h5 class="center">Real Life Outfit Recommendation</h5>
+
+            <p class="light">Our System gives rankings for fashion articles for a query article centric to the user by the information the mdel has learned from the user's part preferences</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <br><br>
+  </div>
+
+  <footer class="page-footer orange">
+    <div class="container">
+      <div class="row">
+        <div class="col l6 s12">
+          <h5 class="white-text">MIDAS</h5>
+          <p class="grey-text text-lighten-4">
+            MIDAS is a group of researchers at IIIT-Delhi who study, analyze, and build different multimedia systems for society leveraging multimodal information. 
+            MIDAS stands for Multimodal Digital Media Analysis Lab and it is founded by <a class="orange-text text-lighten-3" href="http://midas.iiitd.edu.in/team/rajiv-ratn-shah.html">Dr. Rajiv Ratn Shah</a>. 
+            
+          </p>
+
+
+        </div>
+        <div class="col l3 s12">
+          <h5 class="white-text">IIIT Delhi</h5>
+          <ul>
+            <li><a class="orange-text text-lighten-3" href="https://iiitd.ac.in/">IIITD Home</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-copyright">
+      <div class="container">
+      Made by <a class="orange-text text-lighten-3" href="http://github.com/dikshantsagar">Dikshant Sagar</a>
+      </div>
+    </div>
+  </footer>
+
+
+  <!--  Scripts-->
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="{% static "js/materialize.js" %}"></script>
+  <script src="{% static "js/init.js" %}"></script>
+
+  </body>
+</html>

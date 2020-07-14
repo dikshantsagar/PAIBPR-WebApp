@@ -1,0 +1,67 @@
+{% load static %}
+{% load user%}
+{% load top%}
+{% load bottoms%}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+  <title>Rank</title>
+
+  <!-- CSS  -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="{% static "css/materialize.css" %}" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="{% static "css/style.css" %}" type="text/css" rel="stylesheet" media="screen,projection"/>
+</head>
+<body>
+    
+    <nav class="navbar-fixed">
+        <nav class="grey darken-4" role="navigation">
+          <div class="nav-wrapper container">
+            <a id="logo-container" href="{% url 'home' %}" class="brand-logo">
+              <img src = "{% static "LOGO.png" %}" width="100vh">
+            </a>
+            <ul class="right hide-on-med-and-down">
+              <li>
+                <a class="orange waves-effect waves-light btn" href="{% url 'authors' %}"><i class="material-icons right">people</i>Authors</a>
+              </li>
+            </ul>
+            <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+          </div>
+        </nav>
+    </nav>
+    <ul id="nav-mobile" class="sidenav">
+      <li><a href="{% url 'paibpr' %}"><i class="material-icons right">send</i>Try PAI-BPR</a></li>
+      <li><a href="{% url 'authors' %}"><i class="material-icons right">people</i>Authors</a></li>
+    </ul>
+
+    <div class="container">
+        <div class="section">
+
+           <h1>{% user %}</h1>
+           <h2>{% top %}</h2>
+           {% for b in bottoms%}
+            <h3>{% b %}</h3>
+           {% endfor %}
+              
+        </div>
+
+
+
+    </div>
+    
+
+    
+    
+    
+    
+    <!--  Scripts-->
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="{% static "js/materialize.js" %}"></script>
+  <script src="{% static "js/init.js" %}"></script>
+</body>
+
+
+</html>
